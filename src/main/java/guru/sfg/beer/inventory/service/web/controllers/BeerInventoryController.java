@@ -24,10 +24,10 @@ public class BeerInventoryController {
     private final BeerInventoryRepository beerInventoryRepository;
     private final BeerInventoryMapper beerInventoryMapper;
 
-    @GetMapping("api/v1/beer/{beerId}/inventory")
+    @GetMapping("/api/v1/beer/{beerId}/inventory")
     List<BeerInventoryDto> listBeersById(@PathVariable UUID beerId){
         log.debug("Finding Inventory for beerId:" + beerId);
-
+//        System.out.println("Finding Inventory for beerId:" + beerId);
         return beerInventoryRepository.findAllByBeerId(beerId)
                 .stream()
                 .map(beerInventoryMapper::beerInventoryToBeerInventoryDto)
