@@ -19,9 +19,8 @@ public class JmsConfig {
     public static final String DEALLOCATE_ORDER_QUEUE = "deallocate-order";
 
 
-
     @Bean // Serialize message content to json
-    public MessageConverter jacksonJmsMessageConverter(ObjectMapper objectMapper){
+    public MessageConverter jacksonJmsMessageConverter(ObjectMapper objectMapper) {
         MappingJackson2MessageConverter mappingJackson2MessageConverter = new MappingJackson2MessageConverter();
         mappingJackson2MessageConverter.setTargetType(MessageType.TEXT);
         mappingJackson2MessageConverter.setTypeIdPropertyName("_type");
